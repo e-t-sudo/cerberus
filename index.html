@@ -2,7 +2,7 @@
 <script src="AnimCube3.js"></script>
 <div class="cube" style='width: 100vw; height: 100vh;'>
     <script>
-        AnimCube3("hint=10&scale=10&speed=1&colorscheme=wybgro&movetext=1");
+        AnimCube3("edit=0&hint=10&scale=10&speed=1&colorscheme=wybgro&movetext=1");
         scrollDown();
     </script>
 </div>
@@ -16,7 +16,7 @@
     }
     function test(scramble){
             console.log(scramble);
-            AnimCube3("hint=10&scale=10&speed=1&colorscheme=wybgro&movetext=1&initmove="+scramble);
+            AnimCube3("edit=0&hint=10&scale=10&speed=1&colorscheme=wybgro&movetext=1&initmove="+scramble);
             scrollDown();
     }
     document.onkeydown = function(e){
@@ -32,7 +32,7 @@
             }
         }else if(key==67){ //'c' --> clear all scrambles and start with a fully solved cube
             scramble="";
-            AnimCube3("hint=10&scale=10&speed=1&colorscheme=wybgro&movetext=1");
+            AnimCube3("edit=0&hint=10&scale=10&speed=1&colorscheme=wybgro&movetext=1");
             scrollDown();
         }else if(key==65){ //'a' --> animate a move sequence
             let animationScramble = prompt("Enter the animation sequence: ");
