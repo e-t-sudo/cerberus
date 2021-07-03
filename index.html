@@ -1,13 +1,11 @@
 <title>Cerberus</title>
 <script src="AnimCube3.js"></script>
-<body ondblclick = "a()">
-    <div class="cube" style='width: 100vw; height: 100vh;'>
-        <script>
-            AnimCube3("edit=0&hint=10&scale=10&speed=1&colorscheme=wybgro&movetext=1");
-            scrollDown();
-        </script>
-    </div>
-</body>
+<div class="cube" style='width: 100vw; height: 100vh;'>
+    <script>
+        AnimCube3("edit=0&hint=10&scale=10&speed=1&colorscheme=wybgro&movetext=1");
+        scrollDown();
+    </script>
+</div>
 <script>
     let scramble = "";
     function scrollDown() {
@@ -16,39 +14,33 @@
         let height = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
         window.scrollTo(0, height);
     }
-    function moveExec(scramble){
+    function test(scramble){
+            console.log(scramble);
             AnimCube3("edit=0&hint=10&scale=10&speed=1&colorscheme=wybgro&movetext=1&initmove="+scramble);
             scrollDown();
-    }
-    function m(){
-        let newScramble = prompt("Enter the scramble: ");
-        if(newScramble==null){
-            moveExec(scramble);
-        }else{
-            scramble += newScramble;
-            moveExec(scramble);
-        }
-    }
-    function c(){
-        scramble="";
-        AnimCube3("edit=0&hint=10&scale=10&speed=1&colorscheme=wybgro&movetext=1");
-        scrollDown();
-    }
-    function a(){
-        let animationScramble = prompt("Enter the animation sequence: ");
-        AnimCube3("edit=0&hint=10&scale=10&speed=2&colorscheme=wybgro&movetext=1&buttonheight=25&repeat=0&initmove="+scramble+"&move="+animationScramble);
-        scrollDown();
-        scramble += animationScramble;
     }
     document.onkeydown = function(e){
     e = e || window.event;
     var key = e.which || e.keyCode;
         if(key===77){ // 'm' --> move sequence to be executed starting from the current state of the cube
-            m();
+            let newScramble = prompt("Enter the scramble: ");
+            if(newScramble==null){
+                test(scramble);
+            }else{
+                scramble += newScramble;
+                test(scramble);
+            }
         }else if(key==67){ //'c' --> clear all scrambles and start with a fully solved cube
-            c();
+            scramble="";
+            AnimCube3("edit=0&hint=10&scale=10&speed=1&colorscheme=wybgro&movetext=1");
+            scrollDown();
         }else if(key==65){ //'a' --> animate a move sequence
-            a();
+            let animationScramble = prompt("Enter the animation sequence: ");
+            console.log(animationScramble);
+            AnimCube3("edit=0&hint=10&scale=10&speed=2&colorscheme=wybgro&movetext=1&buttonheight=25&repeat=0&initmove="+scramble+"&move="+animationScramble);
+            scrollDown();
+            scramble += animationScramble;
         }
     }
 </script>
+    
