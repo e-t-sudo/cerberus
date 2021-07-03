@@ -13,5 +13,3 @@ Press <kbd>a</kbd> to enter the `animation` mode. It is similar to the `m` mode,
 
 `c`:
 <kbd>c</kbd> is used to clear the previous scrambles and return the cube back to its solved state. 
-
-PS: On devices which do not have a physical keyboard, the animation mode can be triggered by a `double-click` anywhere on the screen. 
